@@ -9,7 +9,6 @@ const Nav = () => {
     <div className="nav">
       <MenuIcon className="menu" />
       <img src={logo} className="logo" alt="logo" />
-
       <Avatar
         alt="Remy Sharp"
         src="https://randomuser.me/api/portraits/med/women/76.jpg"

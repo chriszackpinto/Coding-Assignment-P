@@ -1,0 +1,31 @@
+.pet-list {
+  max-width: 315px;
+  margin: auto;
+  background-color: #fff;
+  border: 1px solid #707070;
+  border-radius: 35px;
+}
+.pet-list h2 {
+  font-size: 19px;
+  text-align: center;
+  margin: 30px;
+}
+.pet-card {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pet-id {
+  opacity: 0.4;
+  font-size: 12px;
+}
+.pet-img {
+  flex: 1;
+}
+.pet-avatar {
+  margin: auto;
+}
+.pet-text {
+  flex: 2;
+}
