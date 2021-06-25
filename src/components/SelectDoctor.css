@@ -1,0 +1,17 @@
+.doctor-card {
+  background-color: aqua;
+  cursor: pointer;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.doctor-img {
+  flex: 1;
+}
+.doctor-avatar {
+  margin: auto;
+}
+.doctor-text {
+  flex: 2;
+}

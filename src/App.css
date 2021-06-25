@@ -4,6 +4,15 @@
   box-sizing: border-box;
   font-family: Helvetica;
 }
-.page {
+.app {
+  /* position: relative; */
   height: 100vh;
+  background-color: #588b8b;
+}
+.page {
+  transform: translateY(2vh);
+  margin: auto;
+  width: 92%;
+  height: 86vh;
+  background-color: #fff;
 }

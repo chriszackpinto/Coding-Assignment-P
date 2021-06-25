@@ -4,6 +4,7 @@
   background-color: #fff;
   border: 1px solid #707070;
   border-radius: 35px;
+  transform: translateY(20vh);
 }
 .pet-list h2 {
   font-size: 19px;
@@ -11,6 +12,7 @@
   margin: 30px;
 }
 .pet-card {
+  cursor: pointer;
   margin: 30px;
   display: flex;
   justify-content: center;

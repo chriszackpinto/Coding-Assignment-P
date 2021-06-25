@@ -1,4 +1,4 @@
-export const DOCTOR = {
+export const DOCTOR_API = {
   results: [
     {
       id: "13565691114",
@@ -76,7 +76,7 @@ export const DOCTOR = {
       },
       stories: "60",
       likes: "80%",
-      starred: true,
+      starred: false,
     },
     {
       id: "13564441114",
@@ -128,12 +128,12 @@ export const DOCTOR = {
       },
       stories: "55",
       likes: "90%",
-      starred: true,
+      starred: false,
     },
   ],
 };
 
-export const PET = {
+export const PET_API = {
   results: [
     {
       id: "alD1412",
