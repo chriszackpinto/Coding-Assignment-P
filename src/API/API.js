@@ -1,0 +1,169 @@
+export const DOCTOR = {
+  results: [
+    {
+      id: "13565691114",
+      name: {
+        title: "Dr.",
+        first: "Anuj",
+        last: "Saha",
+      },
+      qualification: {
+        degree: "Bachelor in Veterinary Science",
+        short: "BVS",
+        experience: "10",
+      },
+      location: {
+        street: "Park Street",
+        city: "Kolkata",
+      },
+      email: "anuj.saha@gmail.com",
+      whatsapp: "1234567890",
+      phone: "1234567890",
+      picture: {
+        thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      },
+      stories: "55",
+      likes: "90%",
+      starred: true,
+    },
+    {
+      id: "13565691454",
+      name: {
+        title: "Dr.",
+        first: "Anuj",
+        last: "Gupta",
+      },
+      qualification: {
+        degree: "Bachelor in Veterinary Science",
+        short: "BVS",
+        experience: "11",
+      },
+      location: {
+        street: "New Alipore",
+        city: "Kolkata",
+      },
+      email: "anuj.gupta@gmail.com",
+      whatsapp: "1234567890",
+      phone: "1234567890",
+      picture: {
+        thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      },
+      stories: "60",
+      likes: "87%",
+      starred: false,
+    },
+    {
+      id: "17749691114",
+      name: {
+        title: "Dr.",
+        first: "Palki",
+        last: "Choudhury",
+      },
+      qualification: {
+        degree: "Bachelor in Veterinary Science",
+        short: "BVS",
+        experience: "6",
+      },
+      location: {
+        street: "New Alipore",
+        city: "Kolkata",
+      },
+      email: "p.c@gmail.com",
+      whatsapp: "1234567890",
+      phone: "1234567890",
+      picture: {
+        thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      },
+      stories: "60",
+      likes: "80%",
+      starred: true,
+    },
+    {
+      id: "13564441114",
+      name: {
+        title: "Dr.",
+        first: "Dilip",
+        last: "Roy",
+      },
+      qualification: {
+        degree: "Bachelor in Veterinary Science",
+        short: "BVS",
+        experience: "18",
+      },
+      location: {
+        street: "Kalikapur",
+        city: "Kolkata",
+      },
+      email: "d.r@gmail.com",
+      whatsapp: "1234567890",
+      phone: "1234567890",
+      picture: {
+        thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      },
+      stories: "55",
+      likes: "90%",
+      starred: true,
+    },
+    {
+      id: "13565214114",
+      name: {
+        title: "Dr.",
+        first: "Sanchita",
+        last: "Gupta",
+      },
+      qualification: {
+        degree: "Bachelor in Veterinary Science",
+        short: "BVS",
+        experience: "10",
+      },
+      location: {
+        street: "Park Street",
+        city: "Kolkata",
+      },
+      email: "anuj.saha@gmail.com",
+      whatsapp: "1234567890",
+      phone: "1234567890",
+      picture: {
+        thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      },
+      stories: "55",
+      likes: "90%",
+      starred: true,
+    },
+  ],
+};
+
+export const PET = {
+  results: [
+    {
+      id: "alD1412",
+      name: "Bruno",
+      animal: "Dog",
+      history: [
+        { date: "1 January", time: "10:00 AM", doctor: "" },
+        { date: "15 February", time: "11:30 AM", ddoctor: "" },
+      ],
+      picture: "",
+    },
+    {
+      id: "aID1510",
+      name: "Casper",
+      animal: "Cat",
+      history: [
+        { date: "1 January", time: "10:00 AM", doctor: "" },
+        { date: "15 February", time: "11:30 AM", ddoctor: "" },
+      ],
+      picture: "",
+    },
+    {
+      id: "aID1567",
+      name: "Willy",
+      animal: "Dog",
+      history: [
+        { date: "1 January", time: "10:00 AM", doctor: "" },
+        { date: "15 February", time: "11:30 AM", ddoctor: "" },
+      ],
+      picture: "",
+    },
+  ],
+};
