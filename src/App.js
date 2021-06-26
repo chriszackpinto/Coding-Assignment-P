@@ -14,11 +14,8 @@ import "./App.css";
 function App() {
   const [pet, setPet] = useState();
   const [doctor, setDoctor] = useState();
+  const [checked, setChecked] = useState(true);
 
-  // useEffect(() => {
-  //   console.log(pet);
-  //   console.log(doctor);
-  // }, [pet, doctor]);
   return (
     <div className="app">
       <Nav />
@@ -38,7 +35,12 @@ function App() {
           />
         </Route>
         <Route path="/appointmentcard">
-          <AppointmentCard doctor={doctor} pet={pet} />
+          <AppointmentCard
+            doctor={doctor}
+            pet={pet}
+            checked={checked}
+            setChecked={setChecked}
+          />
         </Route>
         <Route path="/checkout">
           <Checkout doctor={doctor} pet={pet} />

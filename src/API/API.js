@@ -25,6 +25,7 @@ export const DOCTOR_API = {
       stories: "55",
       likes: "90%",
       starred: true,
+      available: true,
     },
     {
       id: "13565691454",
@@ -51,6 +52,7 @@ export const DOCTOR_API = {
       stories: "60",
       likes: "87%",
       starred: false,
+      available: false,
     },
     {
       id: "17749691114",
@@ -77,6 +79,7 @@ export const DOCTOR_API = {
       stories: "60",
       likes: "80%",
       starred: false,
+      available: true,
     },
     {
       id: "13564441114",
@@ -103,6 +106,7 @@ export const DOCTOR_API = {
       stories: "55",
       likes: "90%",
       starred: true,
+      available: false,
     },
     {
       id: "13565214114",
@@ -129,6 +133,7 @@ export const DOCTOR_API = {
       stories: "55",
       likes: "90%",
       starred: false,
+      available: true,
     },
   ],
 };

@@ -1,6 +1,5 @@
 .doctor-card {
-  background-color: aqua;
-  cursor: pointer;
+  background-color: grey;
   margin: 30px;
   display: flex;
   justify-content: center;
@@ -9,9 +8,24 @@
 .doctor-img {
   flex: 1;
 }
+.doctor-text {
+  flex: 2;
+}
+.doctor-cta {
+  flex: 1;
+}
 .doctor-avatar {
   margin: auto;
 }
-.doctor-text {
-  flex: 2;
+.doctor-name {
+  display: flex;
+}
+.doctor-available {
+  color: green;
+}
+.doctor-unavailable {
+  color: red;
+}
+.starred {
+  color: aqua;
 }

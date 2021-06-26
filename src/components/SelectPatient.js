@@ -13,17 +13,16 @@ const SelectPatient = ({ PET_API, setPet }) => {
     history.push("/selectdoctor");
   };
 
-  // const handleClick = function (e) {
-  //   const click = e.target.closest(".pet-card");
-  //   if (!click) return;
-  //   setPetID(click.children[1].lastChild.innerText);
-
-  // };
-
   return (
     <div className="page">
       <Link to="/">
-        <ArrowBackSharpIcon color="disabled" className="btn-arrow" />
+        <ArrowBackSharpIcon
+          style={{
+            color: "black",
+            fontSize: 30,
+            transform: "translate(10px,10px)",
+          }}
+        />
       </Link>
       {/* <Box className="pet-list" onClick={handleClick}> */}
       <Box className="pet-list">

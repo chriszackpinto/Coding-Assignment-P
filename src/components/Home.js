@@ -9,6 +9,7 @@ const Home = () => {
   const useStyles = makeStyles({
     root: {
       background: "#F28F3B",
+      fontSize: 18,
       borderRadius: 3,
       border: 0,
       color: "white",
@@ -33,7 +34,8 @@ const Home = () => {
         A cloud-based management platform for veterinary professionals to manage
         their daily tasks efficiently
       </p>
-      <Link to="/selectpatient" style={{ textDecoration: "none" }}>
+
+      <Link to="/selectpatient" className="link">
         <Button classes={{ root: classes.root, label: classes.label }}>
           Get Started!
         </Button>

@@ -8,21 +8,16 @@ import ArrowBackSharpIcon from "@material-ui/icons/ArrowBackSharp";
 const DoctorCard = ({ doctor, pet }) => {
   const useStyles = makeStyles({
     root: {
-      background: "#F28F3B",
-      borderRadius: 3,
+      background: "#979D9C",
+      borderRadius: 8,
       border: 0,
       color: "white",
-      height: 48,
+      height: 35,
       padding: "0 30px",
-      boxShadow: "5px 5px 10px #808080",
       transition: "all 0.3s ease",
       "&:hover": {
-        backgroundColor: "#f07b14",
+        backgroundColor: "#6c6e6e",
       },
-    },
-
-    label: {
-      textTransform: "capitalize",
     },
   });
   const classes = useStyles();
@@ -30,7 +25,7 @@ const DoctorCard = ({ doctor, pet }) => {
   return (
     <div className="page">
       <Link to="/selectdoctor">
-        <ArrowBackSharpIcon color="disabled" className="btn-arrow" />
+        <ArrowBackSharpIcon className="arrow-btn" />
       </Link>
 
       <div key={doctor.id}>
@@ -75,7 +70,11 @@ const DoctorCard = ({ doctor, pet }) => {
         </div>
         <hr />
         <Link to="/appointmentcard" style={{ textDecoration: "none" }}>
-          <Button classes={{ root: classes.root, label: classes.label }}>
+          <Button
+            variant="contained"
+            classes={{ root: classes.root }}
+            disableElevation
+          >
             Book Now
           </Button>
         </Link>
