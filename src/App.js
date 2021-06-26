@@ -15,6 +15,7 @@ function App() {
   const [pet, setPet] = useState();
   const [doctor, setDoctor] = useState();
   const [checked, setChecked] = useState(true);
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
     <div className="app">
@@ -27,23 +28,19 @@ function App() {
           <SelectDoctor DOCTOR_API={DOCTOR_API} setDoctor={setDoctor} />
         </Route>
         <Route path="/doctorcard">
-          <DoctorCard
-            DOCTOR_API={DOCTOR_API}
-            doctor={doctor}
-            PET_API={PET_API}
-            pet={pet}
-          />
+          <DoctorCard doctor={doctor} />
         </Route>
         <Route path="/appointmentcard">
           <AppointmentCard
-            doctor={doctor}
             pet={pet}
             checked={checked}
             setChecked={setChecked}
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
           />
         </Route>
         <Route path="/checkout">
-          <Checkout doctor={doctor} pet={pet} />
+          <Checkout doctor={doctor} pet={pet} selectedDate={selectedDate} />
         </Route>
         <Route path="/">
           <Home />

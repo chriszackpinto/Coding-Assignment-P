@@ -1,6 +1,14 @@
 import React from "react";
-import { TextField, FormControl, Select, MenuItem } from "@material-ui/core";
+import {
+  TextField,
+  FormControl,
+  Select,
+  MenuItem,
+  InputAdornment,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import SearchIcon from "@material-ui/icons/Search";
 const Form = () => {
   const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -26,20 +34,35 @@ const Form = () => {
           displayEmpty
           className={classes.selectEmpty}
           inputProps={{ "aria-label": "Without label" }}
+          startAdornment={
+            <InputAdornment position="start">
+              <LocationOnIcon />
+            </InputAdornment>
+          }
         >
           <MenuItem value="" disabled>
-            Placeholder
+            Location
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value="kolkata">Kolkata</MenuItem>
+          <MenuItem value="mumbai">Mumbai</MenuItem>
+          <MenuItem value="delhi">Delhi</MenuItem>
         </Select>
       </FormControl>
+
       <TextField
         id="outlined-search"
         label="Search field"
         type="search"
         variant="outlined"
+        placeholder="Doctor"
+        InputProps={{
+          "aria-label": "search",
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
       />
     </div>
   );

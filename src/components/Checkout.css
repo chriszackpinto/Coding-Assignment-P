@@ -1,5 +1,5 @@
 .checkout-card {
-  padding: 10px 30px 10px 50px;
+  padding: 10px 25px 10px 50px;
   font-size: 14px;
 }
 .checkout-head {
@@ -15,13 +15,9 @@
 .checkout-pet {
   margin: 10px 0;
 }
-.checkout-img {
+/* .checkout-img {
   display: grid;
   place-items: center;
-}
-/* .checkout-avatar {
-  height: 70px;
-  width: 70px;
 } */
 .checkout-date {
   color: green;

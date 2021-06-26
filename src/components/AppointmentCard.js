@@ -1,14 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./AppointmentCard.css";
-import { Avatar, Button, Checkbox, FormControlLabel } from "@material-ui/core";
+import DateFnsUtils from "@date-io/date-fns";
+import {
+  Avatar,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  TextField,
+} from "@material-ui/core";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from "@material-ui/pickers";
 import { makeStyles } from "@material-ui/core/styles";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-
 import ArrowBackSharpIcon from "@material-ui/icons/ArrowBackSharp";
+import "./AppointmentCard.css";
 
-const AppointmentCard = ({ doctor, pet, checked, setChecked }) => {
+const AppointmentCard = ({
+  pet,
+  checked,
+  setChecked,
+  selectedDate,
+  setSelectedDate,
+}) => {
   const useStyles = makeStyles({
     root: {
       background: "#979D9C",
@@ -55,6 +72,11 @@ const AppointmentCard = ({ doctor, pet, checked, setChecked }) => {
     );
   }
 
+  //set date time
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
   return (
     <div className="page">
       <Link to="/doctorcard">
@@ -79,9 +101,32 @@ const AppointmentCard = ({ doctor, pet, checked, setChecked }) => {
           </div>
         </div>
 
-        <label htmlFor="">Date:</label>
-        <label htmlFor="">Time:</label>
-        <label htmlFor="">Reason:</label>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <KeyboardDatePicker
+            disablePast="true"
+            margin="normal"
+            id="date-picker-dialog"
+            label="Date picker dialog"
+            format="dd/MM/yyyy"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              "aria-label": "change date",
+            }}
+          />
+          <KeyboardTimePicker
+            margin="normal"
+            id="time-picker"
+            label="Time picker"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              "aria-label": "change time",
+            }}
+          />
+        </MuiPickersUtilsProvider>
+        <TextField multiline rows={3} variant="outlined" />
+
         <hr />
         <p className="terms-conditions">
           By proceeding, I agree that I have read and understood the Terms &#38;

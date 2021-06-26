@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import moment from "moment";
 import { Avatar } from "@material-ui/core";
 import ArrowBackSharpIcon from "@material-ui/icons/ArrowBackSharp";
 import "./Checkout.css";
 
-const Checkout = ({ doctor, pet }) => {
+const Checkout = ({ doctor, pet, selectedDate }) => {
+  moment.updateLocale("en-in", {
+    longDateFormat: {
+      LLLL: "dddd, D MMMM YYYY, hh:mm a",
+    },
+  });
+
   return (
     <div className="page">
       <Link to="/appointmentcard">
@@ -29,13 +36,13 @@ const Checkout = ({ doctor, pet }) => {
               alt="{doctor.name.first}"
               src={doctor.picture.thumbnail}
               className="checkout-avatar"
-              style={{ height: "70px", width: "70px" }}
+              style={{ height: "85px", width: "85px" }}
             />
           </div>
         </div>
         <div className="checkout-details">
           <p>Follow up</p>
-          <p className="checkout-date">DAte will go here</p>
+          <p className="checkout-date">{moment(selectedDate).format("LLLL")}</p>
           <hr />
           <div className="checkout-total">
             <p>Amount to pay</p>

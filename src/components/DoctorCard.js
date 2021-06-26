@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { Avatar, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ArrowBackSharpIcon from "@material-ui/icons/ArrowBackSharp";
+import "./DoctorCard.css";
 
-const DoctorCard = ({ doctor, pet }) => {
+const DoctorCard = ({ doctor }) => {
   const useStyles = makeStyles({
     root: {
       background: "#979D9C",
@@ -28,11 +29,11 @@ const DoctorCard = ({ doctor, pet }) => {
         <ArrowBackSharpIcon className="arrow-btn" />
       </Link>
 
-      <div key={doctor.id}>
-        <h2>
+      <div key={doctor.id} className="doctor-card-wrapper">
+        <h2 className="doctor-card-name">
           {doctor.name.title} {doctor.name.first} {doctor.name.last}
+          <span className="doctor-card-id">({doctor.id})</span>
         </h2>
-        <span>{doctor.id}</span>
 
         <Avatar
           alt="{doctor.name.first}"
@@ -66,7 +67,7 @@ const DoctorCard = ({ doctor, pet }) => {
         <hr />
         <div className="prev-appointments">
           <p>Appointment History</p>
-          <p>1 Prior Consultation</p>
+          <p>{doctor.history.length} Prior Consultation</p>
         </div>
         <hr />
         <Link to="/appointmentcard" style={{ textDecoration: "none" }}>
