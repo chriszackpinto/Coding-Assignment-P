@@ -1,8 +1,7 @@
 # Getting Started with My Appointment Portal
 
-```
+
 Hosting: appointment-portal.netlify.app/
-```
 
 ## Available Scripts
 
