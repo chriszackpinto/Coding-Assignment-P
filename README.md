@@ -1,5 +1,7 @@
 # Getting Started with My Appointment Portal
 
+Made for Mobile
+
 Hosting: https://appointment-portal.netlify.app/
 
 ## Available Scripts
