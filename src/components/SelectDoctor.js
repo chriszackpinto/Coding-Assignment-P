@@ -13,7 +13,8 @@ import "./SelectDoctor.css";
 const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
   const [city, setCity] = useState("All");
   const [query, setQuery] = useState("");
-  const [cityFiltered, setCityFiltered] = useState([]);
+  const [cityFiltered, setCityFiltered] = useState(DOCTOR_API.results);
+  const [searchFiltered, setSearchFiltered] = useState(cityFiltered);
 
   //Next page
 
@@ -44,47 +45,54 @@ const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
     },
   }))(Button);
 
-  //Implement search
-
-  function handleFilter() {
-    switch (city) {
-      case "Kolkata":
-        setCityFiltered(
-          DOCTOR_API.results.filter(
-            (doctor) => doctor.location.city === "Kolkata"
-          )
-        );
-        break;
-      case "Delhi":
-        setCityFiltered(
-          DOCTOR_API.results.filter(
-            (doctor) => doctor.location.city === "Delhi"
-          )
-        );
-        break;
-      case "Mumbai":
-        setCityFiltered(
-          DOCTOR_API.results.filter(
-            (doctor) => doctor.location.city === "Mumbai"
-          )
-        );
-        break;
-      default:
-        setCityFiltered(DOCTOR_API.results);
-        break;
-    }
-  }
-
-  // useEffect(() => {
-  //   DOCTOR_API.results.map((doctor) => {
-  //     if (doctor.location.city === city) setCityFiltered(doctor);
-  //     // console.log(cityFiltered);
-  //   });
-  // }, [city]);
+  //Filter city on select
 
   useEffect(() => {
+    function handleFilter() {
+      switch (city) {
+        case "Kolkata":
+          setCityFiltered(
+            DOCTOR_API.results.filter(
+              (doctor) => doctor.location.city === "Kolkata"
+            )
+          );
+          break;
+        case "Delhi":
+          setCityFiltered(
+            DOCTOR_API.results.filter(
+              (doctor) => doctor.location.city === "Delhi"
+            )
+          );
+          break;
+        case "Mumbai":
+          setCityFiltered(
+            DOCTOR_API.results.filter(
+              (doctor) => doctor.location.city === "Mumbai"
+            )
+          );
+          break;
+        default:
+          setCityFiltered(DOCTOR_API.results);
+          break;
+      }
+    }
+
     handleFilter();
-  }, [city]);
+
+    const searchResults = () =>
+      setSearchFiltered(
+        cityFiltered.filter((doctor) => {
+          return Object.values(doctor.name)
+            .join(" ")
+            .toLowerCase()
+            .includes(query.toLowerCase());
+        })
+      );
+
+    searchResults();
+  }, [city, query]);
+
+  //Implement search
 
   return (
     <div className="page">
@@ -98,10 +106,7 @@ const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
 
       <hr />
 
-      {/* add query search */}
-
-      {/* {DOCTOR_API.results.map((doctor) => ( */}
-      {cityFiltered.map((doctor) => (
+      {searchFiltered.map((doctor) => (
         <div key={doctor.id} className="doctor-card">
           <div className="doctor-img">
             <Avatar

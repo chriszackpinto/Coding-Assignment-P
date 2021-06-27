@@ -26,12 +26,10 @@ const Form = ({ city, setCity, setQuery }) => {
 
   const handleChange = (event) => {
     setCity(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleSearch = (event) => {
     setQuery(event.target.value);
-    console.log(event.target.value);
   };
 
   return (
