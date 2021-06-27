@@ -20,7 +20,7 @@ export const DOCTOR_API = {
       whatsapp: "1234567890",
       phone: "1234567890",
       picture: {
-        thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+        thumbnail: "https://randomuser.me/api/portraits/thumb/men/15.jpg",
       },
       stories: "55",
       likes: "90%",
@@ -35,7 +35,7 @@ export const DOCTOR_API = {
       id: "13565691454",
       name: {
         title: "Dr.",
-        first: "Anuj",
+        first: "Raj",
         last: "Gupta",
       },
       qualification: {
@@ -51,7 +51,7 @@ export const DOCTOR_API = {
       whatsapp: "1234567890",
       phone: "1234567890",
       picture: {
-        thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+        thumbnail: "https://randomuser.me/api/portraits/thumb/men/25.jpg",
       },
       stories: "60",
       likes: "87%",
@@ -82,7 +82,7 @@ export const DOCTOR_API = {
       whatsapp: "1234567890",
       phone: "1234567890",
       picture: {
-        thumbnail: "https://randomuser.me/api/portraits/thumb/women/15.jpg",
+        thumbnail: "https://randomuser.me/api/portraits/thumb/women/25.jpg",
       },
       stories: "60",
       likes: "80%",
@@ -113,7 +113,7 @@ export const DOCTOR_API = {
       whatsapp: "1234567890",
       phone: "1234567890",
       picture: {
-        thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+        thumbnail: "https://randomuser.me/api/portraits/thumb/men/35.jpg",
       },
       stories: "55",
       likes: "90%",
@@ -144,7 +144,7 @@ export const DOCTOR_API = {
       whatsapp: "1234567890",
       phone: "1234567890",
       picture: {
-        thumbnail: "https://randomuser.me/api/portraits/thumb/women/15.jpg",
+        thumbnail: "https://randomuser.me/api/portraits/thumb/women/55.jpg",
       },
       stories: "55",
       likes: "90%",
