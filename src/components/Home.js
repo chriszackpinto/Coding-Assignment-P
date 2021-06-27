@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import "./Home.css";
 
 const Home = () => {
-  const useStyles = makeStyles({
+  const GetStartedButton = withStyles(() => ({
     root: {
       background: "#F28F3B",
       fontSize: 18,
@@ -21,12 +21,11 @@ const Home = () => {
         backgroundColor: "#f07b14",
       },
     },
-
     label: {
-      textTransform: "capitalize",
+      textTransform: "none",
     },
-  });
-  const classes = useStyles();
+  }))(Button);
+
   return (
     <div className="splash-card">
       <h1>Manage your Veterinary practice with comfort!</h1>
@@ -36,9 +35,7 @@ const Home = () => {
       </p>
 
       <Link to="/selectpatient" className="link">
-        <Button classes={{ root: classes.root, label: classes.label }}>
-          Get Started!
-        </Button>
+        <GetStartedButton>Get Started!</GetStartedButton>
       </Link>
     </div>
   );

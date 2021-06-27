@@ -18,4 +18,6 @@
 .link {
   text-decoration: none;
   width: fit-content;
+  height: 0px;
+  margin-bottom: 50px;
 }

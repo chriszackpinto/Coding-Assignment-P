@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { makeStyles } from "@material-ui/core/styles";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   Avatar,
@@ -14,7 +15,8 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
+
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import ArrowBackSharpIcon from "@material-ui/icons/ArrowBackSharp";
 import "./AppointmentCard.css";
@@ -26,7 +28,7 @@ const AppointmentCard = ({
   selectedDate,
   setSelectedDate,
 }) => {
-  const useStyles = makeStyles({
+  const ProceedButton = withStyles(() => ({
     root: {
       background: "#979D9C",
       borderRadius: 8,
@@ -40,13 +42,10 @@ const AppointmentCard = ({
         backgroundColor: "#6c6e6e",
       },
     },
-
     label: {
-      textTransform: "capitalize",
+      textTransform: "none",
     },
-  });
-
-  const classes = useStyles();
+  }))(Button);
 
   function WhatsappCheckbox() {
     return (
@@ -77,6 +76,16 @@ const AppointmentCard = ({
     setSelectedDate(date);
   };
 
+  const useStyles = makeStyles({
+    root: {
+      margin: 0,
+    },
+    label: {
+      marginRight: 10,
+    },
+  });
+  const classes = useStyles();
+
   return (
     <div className="page">
       <Link to="/doctorcard">
@@ -102,30 +111,51 @@ const AppointmentCard = ({
         </div>
 
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <KeyboardDatePicker
-            disablePast="true"
-            margin="normal"
-            id="date-picker-dialog"
-            label="Date picker dialog"
-            format="dd/MM/yyyy"
-            value={selectedDate}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              "aria-label": "change date",
-            }}
+          <FormControlLabel
+            control={
+              <KeyboardDatePicker
+                disablePast="true"
+                margin="normal"
+                id="date-picker-dialog"
+                label="Date picker dialog"
+                format="dd/MM/yyyy"
+                value={selectedDate}
+                onChange={handleDateChange}
+                KeyboardButtonProps={{
+                  "aria-label": "change date",
+                }}
+              />
+            }
+            label={"Date:"}
+            labelPlacement="start"
+            classes={classes}
           />
-          <KeyboardTimePicker
-            margin="normal"
-            id="time-picker"
-            label="Time picker"
-            value={selectedDate}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              "aria-label": "change time",
-            }}
+
+          <FormControlLabel
+            control={
+              <KeyboardTimePicker
+                margin="normal"
+                id="time-picker"
+                label="Time picker"
+                value={selectedDate}
+                onChange={handleDateChange}
+                KeyboardButtonProps={{
+                  "aria-label": "change time",
+                }}
+              />
+            }
+            label={"Time:"}
+            labelPlacement="start"
+            classes={classes}
           />
         </MuiPickersUtilsProvider>
-        <TextField multiline rows={3} variant="outlined" />
+
+        <FormControlLabel
+          control={<TextField multiline rows={3} variant="outlined" />}
+          label={"Reason:"}
+          labelPlacement="start"
+          classes={classes}
+        />
 
         <hr />
         <p className="terms-conditions">
@@ -144,9 +174,7 @@ const AppointmentCard = ({
 
         <div className="cta">
           <Link to="/checkout" className="link">
-            <Button classes={{ root: classes.root, label: classes.label }}>
-              Proceed
-            </Button>
+            <ProceedButton>Proceed</ProceedButton>
           </Link>
         </div>
       </div>

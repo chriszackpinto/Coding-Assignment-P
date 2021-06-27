@@ -11,14 +11,23 @@ import { makeStyles } from "@material-ui/core/styles";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import SearchIcon from "@material-ui/icons/Search";
 
-const Form = ({ city, setCity, setQuery }) => {
+const Form = ({ city, setCity, query, setQuery }) => {
   const useStyles = makeStyles((theme) => ({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
+    common: {
+      border: "1px solid #000",
+      borderRadius: 10,
+      minWidth: 300,
+      marginTop: 10,
+      marginLeft: 22,
+      // "&:hover": {
+      //   // border: "1px solid #000",
+      // },
+      // "&:focused": {
+      //   border: "1px solid #000",
+      // },
     },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
+    adornment: {
+      padding: 10,
     },
   }));
 
@@ -34,16 +43,16 @@ const Form = ({ city, setCity, setQuery }) => {
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
+      <FormControl>
         <Select
+          disableUnderline
           value={city}
           onChange={handleChange}
-          displayEmpty
-          className={classes.selectEmpty}
+          className={classes.common}
           inputProps={{ "aria-label": "Without label" }}
           startAdornment={
-            <InputAdornment position="start">
-              <LocationOnIcon />
+            <InputAdornment className={classes.adornment} position="start">
+              <LocationOnIcon style={{ fontSize: 15 }} />
             </InputAdornment>
           }
         >
@@ -57,16 +66,17 @@ const Form = ({ city, setCity, setQuery }) => {
       </FormControl>
 
       <TextField
-        id="outlined-search"
-        label="Search field"
+        disableUnderline
+        className={classes.common}
+        value={query}
         type="search"
-        variant="outlined"
         placeholder="Doctor"
         InputProps={{
           "aria-label": "search",
+          disableUnderline: true,
           startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
+            <InputAdornment className={classes.adornment} position="start">
+              <SearchIcon style={{ fontSize: 15 }} />
             </InputAdornment>
           ),
         }}

@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Avatar, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Avatar, Button, Box } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import CallIcon from "@material-ui/icons/Call";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import ForumIcon from "@material-ui/icons/Forum";
 import ArrowBackSharpIcon from "@material-ui/icons/ArrowBackSharp";
 import "./DoctorCard.css";
 
 const DoctorCard = ({ doctor }) => {
-  const useStyles = makeStyles({
+  const BookNowButton = withStyles(() => ({
     root: {
       background: "#979D9C",
       borderRadius: 8,
@@ -20,8 +23,7 @@ const DoctorCard = ({ doctor }) => {
         backgroundColor: "#6c6e6e",
       },
     },
-  });
-  const classes = useStyles();
+  }))(Button);
 
   return (
     <div className="page">
@@ -29,7 +31,7 @@ const DoctorCard = ({ doctor }) => {
         <ArrowBackSharpIcon className="arrow-btn" />
       </Link>
 
-      <div key={doctor.id} className="doctor-card-wrapper">
+      <div className="doctor-card-wrapper">
         <h2 className="doctor-card-name">
           {doctor.name.title} {doctor.name.first} {doctor.name.last}
           <span className="doctor-card-id">({doctor.id})</span>
@@ -39,6 +41,7 @@ const DoctorCard = ({ doctor }) => {
           alt="{doctor.name.first}"
           src={doctor.picture.thumbnail}
           className="doctor-card-avatar"
+          style={{ height: 120, width: 120, margin: 20 }}
         />
 
         <p>
@@ -51,33 +54,46 @@ const DoctorCard = ({ doctor }) => {
         </p>
 
         <p>
-          {doctor.phone} <span>{doctor.whatsapp}</span>{" "}
+          <CallIcon style={{ fontSize: 15 }} />
+          {doctor.phone}
+          <span className="whatsapp-number">
+            <WhatsAppIcon style={{ fontSize: 15 }} />
+            {doctor.whatsapp}
+          </span>
         </p>
 
         <p>Mail: {doctor.email}</p>
 
         <hr />
-
-        <p>
-          {doctor.name.title} {doctor.name.first} is available for a minimum of
-          7 days for free follow up via text post Consultation. However, doctor
-          can decide to increase the follow up text days as per case basis.
-        </p>
-
+        <div className="doctor-card-note">
+          <ForumIcon className="doctor-card-chaticon" />
+          <p className="doctor-card-text">
+            {doctor.name.title} {doctor.name.first} is available for a minimum
+            of 7 days for free follow up via text post Consultation. However,
+            doctor can decide to increase the follow up text days as per case
+            basis.
+          </p>
+        </div>
         <hr />
         <div className="prev-appointments">
           <p>Appointment History</p>
           <p>{doctor.history.length} Prior Consultation</p>
         </div>
+        <Box className="doctor-card-box">
+          {doctor.history.map((date) => (
+            <div key={date.date}>
+              <div className="doctor-history">
+                <p>
+                  {date.date}, {date.time}
+                </p>
+              </div>
+              <hr className="page-line" />
+            </div>
+          ))}
+        </Box>
         <hr />
         <Link to="/appointmentcard" style={{ textDecoration: "none" }}>
-          <Button
-            variant="contained"
-            classes={{ root: classes.root }}
-            disableElevation
-          >
-            Book Now
-          </Button>
+          <BookNowButton disableElevation>Book Now</BookNowButton>
         </Link>
       </div>
     </div>

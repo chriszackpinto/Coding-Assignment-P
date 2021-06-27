@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 
 import Form from "./Form";
@@ -13,8 +13,6 @@ import "./SelectDoctor.css";
 const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
   const [city, setCity] = useState("All");
   const [query, setQuery] = useState("");
-  const [cityFiltered, setCityFiltered] = useState(DOCTOR_API.results);
-  const [searchFiltered, setSearchFiltered] = useState(cityFiltered);
 
   //Next page
 
@@ -47,52 +45,22 @@ const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
 
   //Filter city on select
 
-  useEffect(() => {
-    function handleFilter() {
-      switch (city) {
-        case "Kolkata":
-          setCityFiltered(
-            DOCTOR_API.results.filter(
-              (doctor) => doctor.location.city === "Kolkata"
-            )
-          );
-          break;
-        case "Delhi":
-          setCityFiltered(
-            DOCTOR_API.results.filter(
-              (doctor) => doctor.location.city === "Delhi"
-            )
-          );
-          break;
-        case "Mumbai":
-          setCityFiltered(
-            DOCTOR_API.results.filter(
-              (doctor) => doctor.location.city === "Mumbai"
-            )
-          );
-          break;
-        default:
-          setCityFiltered(DOCTOR_API.results);
-          break;
-      }
-    }
+  let filteredResults = [...DOCTOR_API.results];
 
-    handleFilter();
-
-    const searchResults = () =>
-      setSearchFiltered(
-        cityFiltered.filter((doctor) => {
-          return Object.values(doctor.name)
-            .join(" ")
-            .toLowerCase()
-            .includes(query.toLowerCase());
-        })
-      );
-
-    searchResults();
-  }, [city, query]);
+  if (city !== "All") {
+    filteredResults = filteredResults.filter(
+      (doctor) => doctor.location.city === city
+    );
+  }
 
   //Implement search
+
+  filteredResults = filteredResults.filter((doctor) =>
+    Object.values(doctor.name)
+      .join(" ")
+      .toLowerCase()
+      .includes(query.toLowerCase())
+  );
 
   return (
     <div className="page">
@@ -102,11 +70,11 @@ const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
 
       <h2 className="search-heading">Find and Book</h2>
 
-      <Form city={city} setCity={setCity} setQuery={setQuery} />
+      <Form city={city} setCity={setCity} query={query} setQuery={setQuery} />
 
       <hr />
 
-      {searchFiltered.map((doctor) => (
+      {filteredResults.map((doctor) => (
         <div key={doctor.id} className="doctor-card">
           <div className="doctor-img">
             <Avatar

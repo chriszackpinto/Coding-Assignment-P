@@ -1,17 +1,50 @@
 .doctor-card-wrapper {
+  padding: 10px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.doctor-card-name {
+  font-size: 26px;
+}
 .doctor-card-id {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 5px;
 }
-
+.doctor-card-chaticon {
+  margin: 5px 10px;
+  font-size: 20px;
+}
+.doctor-card-text {
+  font-size: 14px;
+  text-align: left;
+}
+.doctor-card-note {
+  display: flex;
+}
+.doctor-history {
+  text-align: left;
+  margin-left: 10px;
+}
+.doctor-card-box {
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 100%;
+  margin: 20px 0 10px;
+  padding: 20px;
+}
 .prev-appointments {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+.page-line {
+  margin: 0;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.whatsapp-number {
+  margin-left: 25px;
 }
