@@ -1,7 +1,6 @@
 .search-heading {
   margin-left: 50px;
 }
-
 .doctor-card {
   margin: 20px 5px;
   display: flex;
@@ -19,16 +18,12 @@
   text-align: center;
   flex-shrink: 2;
 }
-/* .doctor-avatar {
-  margin: auto 5px;
-} */
 .doctor-name {
   display: flex;
 }
 .doctor-name h3 {
   font-size: 16px;
 }
-
 .doctor-status {
   font-size: 12px;
   margin: 3px 0;

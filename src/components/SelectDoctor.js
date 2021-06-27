@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 
 import Form from "./Form";
@@ -11,6 +11,12 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import "./SelectDoctor.css";
 
 const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
+  const [city, setCity] = useState("All");
+  const [query, setQuery] = useState("");
+  const [cityFiltered, setCityFiltered] = useState([]);
+
+  //Next page
+
   let history = useHistory();
 
   function handleClick(id) {
@@ -40,6 +46,46 @@ const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
 
   //Implement search
 
+  function handleFilter() {
+    switch (city) {
+      case "Kolkata":
+        setCityFiltered(
+          DOCTOR_API.results.filter(
+            (doctor) => doctor.location.city === "Kolkata"
+          )
+        );
+        break;
+      case "Delhi":
+        setCityFiltered(
+          DOCTOR_API.results.filter(
+            (doctor) => doctor.location.city === "Delhi"
+          )
+        );
+        break;
+      case "Mumbai":
+        setCityFiltered(
+          DOCTOR_API.results.filter(
+            (doctor) => doctor.location.city === "Mumbai"
+          )
+        );
+        break;
+      default:
+        setCityFiltered(DOCTOR_API.results);
+        break;
+    }
+  }
+
+  // useEffect(() => {
+  //   DOCTOR_API.results.map((doctor) => {
+  //     if (doctor.location.city === city) setCityFiltered(doctor);
+  //     // console.log(cityFiltered);
+  //   });
+  // }, [city]);
+
+  useEffect(() => {
+    handleFilter();
+  }, [city]);
+
   return (
     <div className="page">
       <Link to="/selectpatient">
@@ -48,11 +94,14 @@ const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
 
       <h2 className="search-heading">Find and Book</h2>
 
-      <Form />
+      <Form city={city} setCity={setCity} setQuery={setQuery} />
 
       <hr />
 
-      {DOCTOR_API.results.map((doctor) => (
+      {/* add query search */}
+
+      {/* {DOCTOR_API.results.map((doctor) => ( */}
+      {cityFiltered.map((doctor) => (
         <div key={doctor.id} className="doctor-card">
           <div className="doctor-img">
             <Avatar
@@ -98,14 +147,13 @@ const SelectDoctor = ({ DOCTOR_API, setDoctor }) => {
 
             <CtaButton
               variant="outlined"
-              size="small"
               onClick={() => handleClick(doctor)}
               disabled={!doctor.available}
             >
               Book an appointment
             </CtaButton>
 
-            <CtaButton variant="outlined" size="small">
+            <CtaButton variant="outlined">
               <PhoneIcon style={{ fontSize: 10, margin: "0 5px" }} />
               Call clinic
             </CtaButton>

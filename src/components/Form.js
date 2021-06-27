@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   TextField,
   FormControl,
@@ -9,7 +10,8 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import SearchIcon from "@material-ui/icons/Search";
-const Form = () => {
+
+const Form = ({ city, setCity, setQuery }) => {
   const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -19,17 +21,24 @@ const Form = () => {
       marginTop: theme.spacing(2),
     },
   }));
+
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setCity(event.target.value);
+    console.log(event.target.value);
   };
+
+  const handleSearch = (event) => {
+    setQuery(event.target.value);
+    console.log(event.target.value);
+  };
+
   return (
     <div>
       <FormControl className={classes.formControl}>
         <Select
-          value={age}
+          value={city}
           onChange={handleChange}
           displayEmpty
           className={classes.selectEmpty}
@@ -40,12 +49,12 @@ const Form = () => {
             </InputAdornment>
           }
         >
-          <MenuItem value="" disabled>
+          <MenuItem value="All" disabled>
             Location
           </MenuItem>
-          <MenuItem value="kolkata">Kolkata</MenuItem>
-          <MenuItem value="mumbai">Mumbai</MenuItem>
-          <MenuItem value="delhi">Delhi</MenuItem>
+          <MenuItem value="Kolkata">Kolkata</MenuItem>
+          <MenuItem value="Mumbai">Mumbai</MenuItem>
+          <MenuItem value="Delhi">Delhi</MenuItem>
         </Select>
       </FormControl>
 
@@ -63,6 +72,7 @@ const Form = () => {
             </InputAdornment>
           ),
         }}
+        onChange={handleSearch}
       />
     </div>
   );

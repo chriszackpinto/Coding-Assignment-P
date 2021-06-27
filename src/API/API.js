@@ -45,7 +45,7 @@ export const DOCTOR_API = {
       },
       location: {
         street: "New Alipore",
-        city: "Kolkata",
+        city: "Delhi",
       },
       email: "anuj.gupta@gmail.com",
       whatsapp: "1234567890",
@@ -76,7 +76,7 @@ export const DOCTOR_API = {
       },
       location: {
         street: "New Alipore",
-        city: "Kolkata",
+        city: "Mumbai",
       },
       email: "p.c@gmail.com",
       whatsapp: "1234567890",
@@ -138,7 +138,7 @@ export const DOCTOR_API = {
       },
       location: {
         street: "Park Street",
-        city: "Kolkata",
+        city: "Mumbai",
       },
       email: "anuj.saha@gmail.com",
       whatsapp: "1234567890",
